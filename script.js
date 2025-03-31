@@ -3,7 +3,8 @@
  * Uses a short delay to ensure the transition is triggered.
  */
 function showTopBanner() {
-	var banner = document.getElementById("top-banner");
+    if (sessionStorage.getItem("topBannerClosed"));
+    var banner = document.getElementById("top-banner");
 	banner.classList.remove("hide");
 	setTimeout(function () {
 		banner.classList.add("show");
@@ -14,6 +15,7 @@ function showTopBanner() {
  * Displays the footer banner by removing the 'hide' class from it.
  */
 function showFooterBanner() {
+    if (document.cookie.includes("footerBannerClosed=true"));
 	document.getElementById("footer-banner").classList.remove("hide");
 }
 
@@ -21,8 +23,8 @@ function showFooterBanner() {
  * Displays the modal by removing the 'hide' class from it.
  */
 function showModal() {
-    if (localStorage.getItem("modalClosed") || navigator.doNotTrack === "1") return;
-	document.getElementById("modal").classList.remove("hide");
+    if (localStorage.getItem("modalClosed"));
+    document.getElementById("modal").classList.remove("hide");
 }
 
 /**
