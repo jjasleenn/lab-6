@@ -9,6 +9,7 @@ function showTopBanner() {
 	setTimeout(function () {
 		banner.classList.add("show");
 	}, 50); // Delay to ensure the transition is triggered
+    randomizePosition(banner);
 }
 
 /**
@@ -61,6 +62,33 @@ function clearData() {
     alert("All data cleared!");
     location.reload();
 }
+
+/**
+ * Moves the close button around the banner to make it harder to click.
+ */
+function makeCloseButtonAnnoying(id) {
+    let button = document.getElementById(id);
+    button.addEventListener("mouseover", function () {
+        button.style.position = "absolute";
+        button.style.top = Math.random() * window.innerHeight + "px";
+        button.style.left = Math.random() * window.innerWidth + "px";
+    });
+}
+
+/**
+ * Randomly positions an element on the screen.
+ */
+function randomizePosition(element) {
+    element.style.position = "absolute";
+    element.style.top = Math.random() * window.innerHeight + "px";
+    element.style.left = Math.random() * window.innerWidth + "px";
+}
+
+// Attach event listeners
+makeCloseButtonAnnoying("close-modal");
+makeCloseButtonAnnoying("close-top-banner");
+makeCloseButtonAnnoying("close-footer-banner");
+document.getElementById("clear-data").addEventListener("click", clearData);
 // Event listeners to close the modal, top banner, and footer banner when 'x' is clicked
 document.getElementById("modal").addEventListener("click", closeModal);
 document.getElementById("top-banner").addEventListener("click", closeTopBanner);
