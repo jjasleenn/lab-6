@@ -38,6 +38,7 @@ function closeModal() {
  */
 function closeTopBanner() {
 	document.getElementById("top-banner").classList.add("hide");
+    sessionStorage.setItem("topBannerClosed", "true");
 }
 
 /**
