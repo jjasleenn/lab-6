@@ -46,6 +46,7 @@ function closeTopBanner() {
  */
 function closeFooterBanner() {
 	document.getElementById("footer-banner").classList.add("hide");
+    document.cookie = "footerBannerClosed=true; path=/; max-age=86400";
 }
 
 // Event listeners to close the modal, top banner, and footer banner when 'x' is clicked
