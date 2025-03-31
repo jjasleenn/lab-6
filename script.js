@@ -21,6 +21,7 @@ function showFooterBanner() {
  * Displays the modal by removing the 'hide' class from it.
  */
 function showModal() {
+    if (localStorage.getItem("modalClosed") || navigator.doNotTrack === "1") return;
 	document.getElementById("modal").classList.remove("hide");
 }
 
@@ -29,6 +30,7 @@ function showModal() {
  */
 function closeModal() {
 	document.getElementById("modal").classList.add("hide");
+    localStorage.setItem("modalClosed", "true");
 }
 
 /**
