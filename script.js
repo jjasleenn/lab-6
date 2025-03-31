@@ -51,6 +51,16 @@ function closeFooterBanner() {
     document.cookie = "footerBannerClosed=true; path=/; max-age=86400";
 }
 
+/**
+ * Clears all stored data.
+ */
+function clearData() {
+    localStorage.clear();
+    sessionStorage.clear();
+    document.cookie = "footerBannerClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    alert("All data cleared!");
+    location.reload();
+}
 // Event listeners to close the modal, top banner, and footer banner when 'x' is clicked
 document.getElementById("modal").addEventListener("click", closeModal);
 document.getElementById("top-banner").addEventListener("click", closeTopBanner);
